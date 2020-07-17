@@ -15,6 +15,7 @@ enum AppError: Error {
     case authorization
     case noConnection
     case timeout
+    case fileNotFound
     
     init(fromError error: Error?) {
         guard error != nil else {

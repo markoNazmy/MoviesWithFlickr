@@ -8,6 +8,11 @@
 
 import Alamofire
 
+enum RequestType {
+    case https
+    case localfile(fileName: String, fileExt: String)
+}
+
 protocol Request {
     
     // The request base URL.
@@ -28,5 +33,8 @@ protocol Request {
     var parameters: [String: Any]? { get }
     
     // The request cache policy.
-    var cachePolicy: URLRequest.CachePolicy? { get }
+    var cachePolicy: URLRequest.CachePolicy { get }
+    
+    // The request type as file or HTTPS request.
+    var requestType: RequestType { get }
 }
