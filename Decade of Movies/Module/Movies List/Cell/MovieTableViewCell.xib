@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MovieTableViewCell" rowHeight="310" id="KGk-i7-Jjw" customClass="MovieTableViewCell" customModule="Decade_of_Movies" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="452" height="302"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="421" height="302"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sVR-yZ-M4q">
+                        <rect key="frame" x="16" y="16" width="254.5" height="270"/>
+                        <fontDescription key="fontDescription" type="italicSystem" pointSize="16"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="wae-4A-aGr">
+                        <rect key="frame" x="286.5" y="131" width="126.5" height="40"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart-empty" translatesAutoresizingMaskIntoConstraints="NO" id="1xi-Fs-RzH">
+                                <rect key="frame" x="0.0" y="0.0" width="21.5" height="40"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart-empty" translatesAutoresizingMaskIntoConstraints="NO" id="UpN-9i-rJ3">
+                                <rect key="frame" x="26.5" y="0.0" width="21" height="40"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart-empty" translatesAutoresizingMaskIntoConstraints="NO" id="ubj-6B-PmT">
+                                <rect key="frame" x="52.5" y="0.0" width="21.5" height="40"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart-empty" translatesAutoresizingMaskIntoConstraints="NO" id="ZLo-N3-uAd">
+                                <rect key="frame" x="79" y="0.0" width="21" height="40"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart-empty" translatesAutoresizingMaskIntoConstraints="NO" id="3ml-rg-RLG">
+                                <rect key="frame" x="105" y="0.0" width="21.5" height="40"/>
+                            </imageView>
+                        </subviews>
+                    </stackView>
+                </subviews>
+                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                <constraints>
+                    <constraint firstItem="sVR-yZ-M4q" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="8el-4A-Hp7"/>
+                    <constraint firstItem="wae-4A-aGr" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="Pw4-Tp-dEa"/>
+                    <constraint firstAttribute="bottom" secondItem="sVR-yZ-M4q" secondAttribute="bottom" constant="16" id="cjb-zY-F6D"/>
+                    <constraint firstItem="wae-4A-aGr" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="sss-tO-O8C"/>
+                    <constraint firstItem="wae-4A-aGr" firstAttribute="leading" secondItem="sVR-yZ-M4q" secondAttribute="trailing" constant="16" id="tGr-oZ-UXj"/>
+                    <constraint firstItem="sVR-yZ-M4q" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="uuc-Rm-s0a"/>
+                    <constraint firstItem="wae-4A-aGr" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.3" id="w0q-gC-C9y"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="titleLabel" destination="sVR-yZ-M4q" id="sKI-zk-auy"/>
+                <outletCollection property="ratingImages" destination="1xi-Fs-RzH" collectionClass="NSMutableArray" id="29E-KA-aEH"/>
+                <outletCollection property="ratingImages" destination="UpN-9i-rJ3" collectionClass="NSMutableArray" id="KLP-AM-ref"/>
+                <outletCollection property="ratingImages" destination="ubj-6B-PmT" collectionClass="NSMutableArray" id="NU1-YY-c6G"/>
+                <outletCollection property="ratingImages" destination="ZLo-N3-uAd" collectionClass="NSMutableArray" id="THv-pa-HZJ"/>
+                <outletCollection property="ratingImages" destination="3ml-rg-RLG" collectionClass="NSMutableArray" id="kOY-tH-xrf"/>
+            </connections>
+            <point key="canvasLocation" x="68.115942028985515" y="145.98214285714286"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="heart-empty" width="40" height="40"/>
+    </resources>
+</document>

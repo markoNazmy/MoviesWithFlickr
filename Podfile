@@ -12,6 +12,7 @@ target 'Decade of Movies' do
   pod 'Alamofire'
   pod 'Kingfisher'
   pod 'Reusable'
+  pod 'IQKeyboardManagerSwift'
 
   target 'Decade of MoviesTests' do
     inherit! :search_paths
