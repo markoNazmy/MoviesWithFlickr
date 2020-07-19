@@ -10,9 +10,22 @@ import Foundation
 
 typealias FilteredMoviesListResult = (Result<[Int: [Movie]], AppError>) -> (Void)
 
-class FilteredMoviesListUseCase {
+protocol FilteredMoviesListUseCaseProtocol {
+    func excute(key: String, result: @escaping FilteredMoviesListResult)
+}
+
+class FilteredMoviesListUseCase: FilteredMoviesListUseCaseProtocol {
     
+    var repository: MoviesListingRepositoryProtocol = MoviesListingRepository()
     var oldSearches: [String: [Int: [Movie]]] = [:]
+    
+    init() {
+        
+    }
+    
+    init(repository: MoviesListingRepositoryProtocol) {
+        self.repository = repository
+    }
     
     func excute(key: String, result: @escaping FilteredMoviesListResult) {
         if let searchResult = oldSearches[key], !searchResult.values.isEmpty {
@@ -23,7 +36,7 @@ class FilteredMoviesListUseCase {
     }
     
     fileprivate func getMovies(withKey key: String, result: @escaping FilteredMoviesListResult) {
-        MoviesListingRepository.fetchMoviesList {[weak self] res in
+        repository.fetchMoviesList {[weak self] res in
             switch res {
             case .success(let response):
                 if let filteredMovies = self?.filter(key: key, movies: response.movies), let categorizedMovies = self?.categorize(filteredMovies) {

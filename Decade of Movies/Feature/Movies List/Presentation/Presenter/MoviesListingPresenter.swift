@@ -25,8 +25,8 @@ class MoviesListingPresenter {
         case sections
     }
     
-    let moviesListingUseCase = MoviesListingUseCase()
-    let filteredMoviesListUseCase = FilteredMoviesListUseCase()
+    var moviesListingUseCase: MoviesListingUseCaseProtocol = MoviesListingUseCase()
+    var filteredMoviesListUseCase: FilteredMoviesListUseCaseProtocol = FilteredMoviesListUseCase()
     
     weak var view: MoviesListingView!
     
@@ -39,13 +39,18 @@ class MoviesListingPresenter {
     
     init(view: MoviesListingView) {
         self.view = view
-        view.hideErrorView()
-        view.hideEmptyStateView()
+        prepareView()
+    }
+    
+    init(view: MoviesListingView, moviesListingUseCase: MoviesListingUseCaseProtocol, filteredMoviesListUseCase: FilteredMoviesListUseCaseProtocol) {
+        self.view = view
+        self.moviesListingUseCase = moviesListingUseCase
+        self.filteredMoviesListUseCase = filteredMoviesListUseCase
+        prepareView()
     }
     
     func getAllMovies() {
-        view.hideErrorView()
-        view.hideEmptyStateView()
+        prepareView()
         view.showLoadingView()
         moviesListingUseCase.excute {[weak self] (result) in
             switch result {
@@ -68,8 +73,7 @@ class MoviesListingPresenter {
     }
 
     func getAllMovies(withKey key: String) {
-        view.hideErrorView()
-        view.hideEmptyStateView()
+        prepareView()
         view.showLoadingView()
         filteredMoviesListUseCase.excute(key: key) {[weak self] (result) in
             switch result {
@@ -90,6 +94,11 @@ class MoviesListingPresenter {
             }
             self?.view.hideLoadingView()
         }
+    }
+    
+    func prepareView() {
+        view.hideErrorView()
+        view.hideEmptyStateView()
     }
     
 }

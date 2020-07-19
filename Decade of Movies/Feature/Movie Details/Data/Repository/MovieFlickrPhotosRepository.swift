@@ -10,10 +10,24 @@ import Foundation
 
 typealias MovieFlickrPhotosResult = (Result<PhotosResponse, AppError>) -> (Void)
 
-struct MovieFlickrPhotosRepository {
+protocol MovieFlickrPhotosRepositoryProtocol {
+    func fetchMoviesList(movieTitle: String, page: Int, photosPerPage: Int, result: @escaping MovieFlickrPhotosResult)
+}
+
+struct MovieFlickrPhotosRepository: MovieFlickrPhotosRepositoryProtocol {
     
-    static func fetchMoviesList(movieTitle: String, page: Int, photosPerPage: Int, result: @escaping MovieFlickrPhotosResult) {
-        DataStoreFactory.getFetcher(type: .network).start(request: MovieFlickrPhotosRequest.movieFlickrPhotosRequest(movieTitle: movieTitle, page: page, photosPerPage: photosPerPage)) { response in
+    var fetcher: Fetcher = DataStoreFactory.getFetcher(type: .network)
+    
+    init() {
+        
+    }
+    
+    init(fetcher: Fetcher) {
+        self.fetcher = fetcher
+    }
+    
+    func fetchMoviesList(movieTitle: String, page: Int, photosPerPage: Int, result: @escaping MovieFlickrPhotosResult) {
+        fetcher.start(request: MovieFlickrPhotosRequest.movieFlickrPhotosRequest(movieTitle: movieTitle, page: page, photosPerPage: photosPerPage)) { response in
             result(response)
         }
     }

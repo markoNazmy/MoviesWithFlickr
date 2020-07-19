@@ -8,11 +8,25 @@
 
 import Foundation
 
-class MovieFlickrPhotosUseCase {
+protocol MovieFlickrPhotosUseCaseProtocol {
+    func excute(movieTitle: String, result: @escaping MovieFlickrPhotosResult)
+}
+
+class MovieFlickrPhotosUseCase: MovieFlickrPhotosUseCaseProtocol {
     var currentPage: Int = 1
     var pageSize: Int = 20
     var totalPagesCount: Int?
         
+    var repository: MovieFlickrPhotosRepositoryProtocol = MovieFlickrPhotosRepository()
+
+    init() {
+        
+    }
+    
+    init(repository: MovieFlickrPhotosRepositoryProtocol) {
+        self.repository = repository
+    }
+    
     func excute(movieTitle: String, result: @escaping MovieFlickrPhotosResult) {
         
         if let totalPagesCount = totalPagesCount, (totalPagesCount == 0 || totalPagesCount > currentPage) {
@@ -23,7 +37,8 @@ class MovieFlickrPhotosUseCase {
     }
     
     fileprivate func getPhotosList(_ movieTitle: String, _ result: @escaping MovieFlickrPhotosResult) {
-        MovieFlickrPhotosRepository.fetchMoviesList(movieTitle: movieTitle, page: currentPage, photosPerPage: pageSize) { [weak self] resp in
+        
+        repository.fetchMoviesList(movieTitle: movieTitle, page: currentPage, photosPerPage: pageSize) { [weak self] resp in
             switch resp {
             case .success(let response):
                 self?.currentPage += 1

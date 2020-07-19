@@ -21,8 +21,8 @@ class MovieDetailsPresenter {
         case error
     }
     
-    let movieFlickrPhotosUseCase = MovieFlickrPhotosUseCase()
-    let movieMainPhotoUseCase = MovieMainPhotoUseCase()
+    var movieFlickrPhotosUseCase: MovieFlickrPhotosUseCaseProtocol = MovieFlickrPhotosUseCase()
+    var movieMainPhotoUseCase: MovieMainPhotoUseCaseProtocol = MovieMainPhotoUseCase()
     weak var view: MovieDetailsView!
     
     var movie: Movie!
@@ -33,9 +33,13 @@ class MovieDetailsPresenter {
         self.view = view
     }
     
+    init(view: MovieDetailsView, movieFlickrPhotosUseCase: MovieFlickrPhotosUseCaseProtocol, movieMainPhotoUseCase: MovieMainPhotoUseCaseProtocol) {
+        self.view = view
+        self.movieFlickrPhotosUseCase = movieFlickrPhotosUseCase
+        self.movieMainPhotoUseCase = movieMainPhotoUseCase
+    }
+    
     func getMoviePhotos() {
-        viewMode = .data
-        view.refreshCollectionView()
         movieFlickrPhotosUseCase.excute(movieTitle: movie.title ?? "") {[weak self] (result) in
             switch result {
             case .success(let response):

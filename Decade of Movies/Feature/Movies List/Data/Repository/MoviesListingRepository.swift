@@ -10,10 +10,24 @@ import Foundation
 
 typealias MoviesListResult = (Result<Movies, AppError>) -> (Void)
 
-struct MoviesListingRepository {
+protocol MoviesListingRepositoryProtocol {
+    func fetchMoviesList(result: @escaping MoviesListResult)
+}
+
+struct MoviesListingRepository: MoviesListingRepositoryProtocol {
     
-    static func fetchMoviesList(result: @escaping MoviesListResult) {
-        DataStoreFactory.getFetcher(type: .local).start(request: MoviesListRequest.getLocalMovies) { response in
+    var fetcher: Fetcher = DataStoreFactory.getFetcher(type: .local)
+    
+    init() {
+        
+    }
+    
+    init(fetcher: Fetcher) {
+        self.fetcher = fetcher
+    }
+    
+    func fetchMoviesList(result: @escaping MoviesListResult) {
+        fetcher.start(request: MoviesListRequest.getLocalMovies) { response in
             result(response)
         }
     }

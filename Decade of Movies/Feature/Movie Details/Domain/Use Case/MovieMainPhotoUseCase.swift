@@ -10,10 +10,25 @@ import Foundation
 
 typealias MovieMainPhotoResult = (Result<String?, AppError>) -> (Void)
 
-struct MovieMainPhotoUseCase {
+protocol MovieMainPhotoUseCaseProtocol {
+    func excute(movieTitle: String, result: @escaping MovieMainPhotoResult)
+}
+
+struct MovieMainPhotoUseCase: MovieMainPhotoUseCaseProtocol {
+    
+    var repository: MovieFlickrPhotosRepositoryProtocol = MovieFlickrPhotosRepository()
+    
+    init() {
+        
+    }
+    
+    init(repository: MovieFlickrPhotosRepositoryProtocol) {
+        self.repository = repository
+    }
     
     func excute(movieTitle: String, result: @escaping MovieMainPhotoResult) {
-        MovieFlickrPhotosRepository.fetchMoviesList(movieTitle: movieTitle, page: 1, photosPerPage: 1) { resp in
+        
+        repository.fetchMoviesList(movieTitle: movieTitle, page: 1, photosPerPage: 1) { resp in
             switch resp {
             case .success(let response):
                 if let photos = response.photos?.photo, !photos.isEmpty,  let photo = response.photos?.photo?[0] {

@@ -8,10 +8,24 @@
 
 import Foundation
 
-struct MoviesListingUseCase {
+protocol MoviesListingUseCaseProtocol {
+    func excute(result: @escaping MoviesListResult)
+}
+
+struct MoviesListingUseCase: MoviesListingUseCaseProtocol {
+    
+    var repository: MoviesListingRepositoryProtocol = MoviesListingRepository()
+    
+    init() {
+        
+    }
+    
+    init(repository: MoviesListingRepositoryProtocol) {
+        self.repository = repository
+    }
     
     func excute(result: @escaping MoviesListResult) {
-        MoviesListingRepository.fetchMoviesList(result: result)
+        repository.fetchMoviesList(result: result)
     }
     
 }
