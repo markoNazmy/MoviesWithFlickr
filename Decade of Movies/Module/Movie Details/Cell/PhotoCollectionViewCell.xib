@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PhotoCollectionViewCell" customModule="Decade_of_Movies" customModuleProvider="target">
+            <connections>
+                <outlet property="imageView" destination="bu4-xD-z82" id="UnZ-Ye-6md"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="PhotoCollectionViewCell" id="gTV-IL-0wX">
+            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bu4-xD-z82">
+                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </imageView>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="bu4-xD-z82" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="L8A-Rt-f2d"/>
+                <constraint firstItem="bu4-xD-z82" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" id="TE9-wY-zan"/>
+                <constraint firstItem="bu4-xD-z82" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" id="cMZ-vb-gpV"/>
+                <constraint firstItem="bu4-xD-z82" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="ovH-Ub-8rQ"/>
+            </constraints>
+            <point key="canvasLocation" x="131" y="154"/>
+        </collectionViewCell>
+    </objects>
+</document>

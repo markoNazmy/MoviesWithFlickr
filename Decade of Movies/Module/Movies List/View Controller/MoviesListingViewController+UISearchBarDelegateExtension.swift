@@ -13,25 +13,26 @@ extension MoviesListingViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         let searchQuery = searchBar.text?.trimmingCharacters(in: .whitespacesAndNewlines).lowercased() ?? ""
-        presenter.getAllMovies(withKey: searchQuery)
-        tableView.scrollsToTop = true
+        if !searchQuery.isEmpty {
+            presenter.getAllMovies(withKey: searchQuery)
+            scrollToTop()
+        }
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         let searchQuery = searchBar.text?.trimmingCharacters(in: .whitespacesAndNewlines).lowercased() ?? "" // check minimum length after removing extra space
-        if searchQuery.count >= presenter.minQueryLength {
+        if searchQuery.count >= presenter.minQueryLength && !searchQuery.isEmpty {
             presenter.getAllMovies(withKey: searchQuery)
-            tableView.scrollsToTop = true
         } else if searchQuery.isEmpty {
             presenter.getAllMovies()
-            tableView.scrollsToTop = true
         }
+        scrollToTop()
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         if searchBar.text?.isEmpty == false {
             presenter.getAllMovies()
-            tableView.scrollsToTop = true
+            scrollToTop()
         }
         searchBar.text = ""
     }

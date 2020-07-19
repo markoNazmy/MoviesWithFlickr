@@ -29,12 +29,12 @@ enum MoviesListRequest: Request {
         return nil
     }
     
-    var parameters: [String: Any]? {
-        return nil
-    }
-    
     var cachePolicy: URLRequest.CachePolicy {
         return .returnCacheDataElseLoad
+    }
+    
+    var parameters: [String : String]? {
+        return nil
     }
     
     var requestType: RequestType {

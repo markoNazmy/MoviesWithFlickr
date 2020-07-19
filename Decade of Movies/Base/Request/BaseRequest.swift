@@ -29,11 +29,11 @@ protocol Request {
     // It's optional and can be moved to a Request extension. Usually defined by the `Client`.
     var headers: [String: String]? { get }
     
-    // The request parameters.
-    var parameters: [String: Any]? { get }
-    
     // The request cache policy.
     var cachePolicy: URLRequest.CachePolicy { get }
+    
+    // The request parameters.
+    var parameters: [String: String]? { get }
     
     // The request type as file or HTTPS request.
     var requestType: RequestType { get }

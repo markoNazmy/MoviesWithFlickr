@@ -8,7 +8,6 @@
 
 import UIKit
 import Reusable
-import Kingfisher
 
 class MovieTableViewCell: UITableViewCell, NibOwnerLoadable, Reusable {
     

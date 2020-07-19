@@ -34,7 +34,7 @@ class MoviesListingPresenter {
     var viewMode: ViewMode = .singleRow
     var retryAction: (()->(Void))?
     
-    let minQueryLength: Int = 3
+    let minQueryLength: Int = 0
     
     init(view: MoviesListingView) {
         self.view = view
@@ -43,13 +43,13 @@ class MoviesListingPresenter {
     }
     
     func getAllMovies() {
-        viewMode = .singleRow
         view.hideErrorView()
         view.hideEmptyStateView()
         view.showLoadingView()
         moviesListingUseCase.excute {[weak self] (result) in
             switch result {
             case .success(let movies):
+                self?.viewMode = .singleRow
                 self?.movies = movies.movies ?? []
                 if movies.movies?.isEmpty == true {
                     self?.view.showEmptyStateView()
@@ -67,13 +67,13 @@ class MoviesListingPresenter {
     }
     
     func getAllMovies(withKey key: String) {
-        viewMode = .sections
         view.hideErrorView()
         view.hideEmptyStateView()
         view.showLoadingView()
         filteredMoviesListUseCase.excute(key: key) {[weak self] (result) in
             switch result {
             case .success(let categorizedMovies):
+                self?.viewMode = .sections
                 self?.categorizedMovies = categorizedMovies
                 self?.movies = categorizedMovies.first?.value ?? []
                 if self?.categorizedMovies.values.isEmpty == true {

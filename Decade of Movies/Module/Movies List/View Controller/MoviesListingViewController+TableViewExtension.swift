@@ -53,4 +53,18 @@ extension MoviesListingViewController: UITableViewDelegate, UITableViewDataSourc
         }
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        var movie: Movie!
+        switch presenter.viewMode {
+        case .singleRow:
+            movie = presenter.movies[indexPath.row]
+        case .sections:
+            let array = Array(presenter.categorizedMovies)
+            movie = array[indexPath.section].value[indexPath.row]
+        }
+        navigateToMovieDetails(movie: movie)
+    }
+    
 }

@@ -15,7 +15,7 @@ struct NetworkFetcher: Fetcher {
     }
     
     var baseUrl: String {
-        return "https://api.flickr.com/services/rest"
+        return "api.flickr.com"
     }
     
     var defaultHeaders: [String: String] {
@@ -50,16 +50,25 @@ struct NetworkFetcher: Fetcher {
         
         // Base URL should be defined in the client if not already in the request
         let api_key = "e4da209e98e0f25bc11f62169dea2c2f"
-        let staticQueryParams = "\(request.path.contains("?") ? "&": "?")api_key=\(api_key)"
         
-        if let baseUrl = request.baseUrl {
-            return URL(string: baseUrl + request.path + staticQueryParams)!
-        } else {
-            guard !self.baseUrl.isEmpty else {
-                fatalError("Generic API client cannot be used without a base URL. Please provide a base URL or use one of the dedicated clients with a predefined base URL.")
+        var queryItems: [URLQueryItem] = []
+        
+        if let parameters = request.parameters {
+            for param in parameters {
+                queryItems.append(URLQueryItem(name: param.key, value: param.value))
             }
-            return URL(string: baseUrl + request.path + staticQueryParams)!
         }
+        
+        queryItems.append(URLQueryItem(name: "api_key", value: api_key))
+        
+        let scheme = "https"
+        var urlComponents = URLComponents()
+        urlComponents.scheme = scheme
+        urlComponents.host = request.baseUrl ?? baseUrl
+        urlComponents.path = request.path
+        urlComponents.queryItems = queryItems
+        
+        return urlComponents.url!
     }
     
 }

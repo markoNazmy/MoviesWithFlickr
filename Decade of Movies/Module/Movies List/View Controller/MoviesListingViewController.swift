@@ -38,6 +38,7 @@ class MoviesListingViewController: UIViewController {
         tableView.dataSource = self
         tableView.estimatedRowHeight = 270
         tableView.rowHeight = UITableView.automaticDimension
+        tableView.scrollsToTop = true
     }
     
     func setUpSearchController() {
@@ -53,5 +54,19 @@ class MoviesListingViewController: UIViewController {
     @IBAction func retryButtonTabbed(_ sender: Any) {
         presenter.retryAction?()
     }
+    
+    func navigateToMovieDetails(movie: Movie) {
+        let storyboard = UIStoryboard(name: "MovieDetails", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "MovieDetailsViewController") as! MovieDetailsViewController
+        vc.movie = movie
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        searchController.searchBar.endEditing(true)
+    }
   
+    func scrollToTop() {
+        self.tableView.scrollRectToVisible(CGRect(x: 0, y: 0, width: 1, height: 1), animated: true)
+    }
 }

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Dwr-cR-ZL3">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="dq2-Iq-X88">
+            <objects>
+                <navigationController id="Dwr-cR-ZL3" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Kqx-Jr-sXP">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Wt2-BM-cdk" kind="relationship" relationship="rootViewController" id="XjY-ej-U33"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dBH-RS-dk2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-461" y="136"/>
+        </scene>
+        <!--Movie Details-->
+        <scene sceneID="n9c-Qo-USo">
+            <objects>
+                <viewController storyboardIdentifier="MovieDetailsViewController" id="Wt2-BM-cdk" customClass="MovieDetailsViewController" customModule="Decade_of_Movies" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Uhs-ff-pBW">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Deo-NS-cVy">
+                                <rect key="frame" x="16" y="104" width="382" height="758"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="jfN-an-hOt">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="7Vt-lO-RBo" firstAttribute="bottom" secondItem="Deo-NS-cVy" secondAttribute="bottom" id="6vD-6I-aOW"/>
+                            <constraint firstItem="Deo-NS-cVy" firstAttribute="leading" secondItem="7Vt-lO-RBo" secondAttribute="leading" constant="16" id="7s5-sU-t4E"/>
+                            <constraint firstItem="Deo-NS-cVy" firstAttribute="top" secondItem="7Vt-lO-RBo" secondAttribute="top" constant="16" id="hGQ-1J-TmQ"/>
+                            <constraint firstItem="7Vt-lO-RBo" firstAttribute="trailing" secondItem="Deo-NS-cVy" secondAttribute="trailing" constant="16" id="lZE-jc-t1k"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="7Vt-lO-RBo"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Movie Details" id="eLx-hF-VKK"/>
+                    <connections>
+                        <outlet property="collectionView" destination="Deo-NS-cVy" id="mGA-oM-djS"/>
+                        <outlet property="flowLayout" destination="Deo-NS-cVy" id="2lo-9f-3je"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="45W-C7-1dY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="340.57971014492756" y="135.9375"/>
+        </scene>
+    </scenes>
+</document>
