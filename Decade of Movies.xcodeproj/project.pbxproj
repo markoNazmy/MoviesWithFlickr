@@ -55,6 +55,10 @@
 		70E4E02224C3CEE2009D0BFC /* MovieDetailsViewController+MovieDetailsViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E4E02124C3CEE2009D0BFC /* MovieDetailsViewController+MovieDetailsViewExtension.swift */; };
 		70E4E02424C3CEFD009D0BFC /* MovieDetailsViewController+UICollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E4E02324C3CEFD009D0BFC /* MovieDetailsViewController+UICollectionViewExtension.swift */; };
 		70E4E02E24C48BFE009D0BFC /* DataStoreFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E4E02D24C48BFE009D0BFC /* DataStoreFactory.swift */; };
+		70E4E03324C4EE04009D0BFC /* EmptyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E4E02F24C4EE04009D0BFC /* EmptyCollectionViewCell.swift */; };
+		70E4E03424C4EE04009D0BFC /* ErrorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E4E03024C4EE04009D0BFC /* ErrorCollectionViewCell.swift */; };
+		70E4E03524C4EE04009D0BFC /* EmptyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70E4E03124C4EE04009D0BFC /* EmptyCollectionViewCell.xib */; };
+		70E4E03624C4EE04009D0BFC /* ErrorCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70E4E03224C4EE04009D0BFC /* ErrorCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -130,6 +134,10 @@
 		70E4E02124C3CEE2009D0BFC /* MovieDetailsViewController+MovieDetailsViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MovieDetailsViewController+MovieDetailsViewExtension.swift"; sourceTree = "<group>"; };
 		70E4E02324C3CEFD009D0BFC /* MovieDetailsViewController+UICollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MovieDetailsViewController+UICollectionViewExtension.swift"; sourceTree = "<group>"; };
 		70E4E02D24C48BFE009D0BFC /* DataStoreFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStoreFactory.swift; sourceTree = "<group>"; };
+		70E4E02F24C4EE04009D0BFC /* EmptyCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyCollectionViewCell.swift; sourceTree = "<group>"; };
+		70E4E03024C4EE04009D0BFC /* ErrorCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorCollectionViewCell.swift; sourceTree = "<group>"; };
+		70E4E03124C4EE04009D0BFC /* EmptyCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmptyCollectionViewCell.xib; sourceTree = "<group>"; };
+		70E4E03224C4EE04009D0BFC /* ErrorCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ErrorCollectionViewCell.xib; sourceTree = "<group>"; };
 		80656E3AB337B415FC03AFBE /* Pods_Decade_of_Movies.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Decade_of_Movies.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D4C008C3F1C3753B48A21D5 /* Pods-Decade of Movies.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Decade of Movies.release.xcconfig"; path = "Target Support Files/Pods-Decade of Movies/Pods-Decade of Movies.release.xcconfig"; sourceTree = "<group>"; };
 		AEF925F0D81E2C50039DC39D /* Pods-Decade of MoviesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Decade of MoviesTests.debug.xcconfig"; path = "Target Support Files/Pods-Decade of MoviesTests/Pods-Decade of MoviesTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -194,6 +202,10 @@
 		70148B0B24C3764000344E91 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				70E4E02F24C4EE04009D0BFC /* EmptyCollectionViewCell.swift */,
+				70E4E03124C4EE04009D0BFC /* EmptyCollectionViewCell.xib */,
+				70E4E03024C4EE04009D0BFC /* ErrorCollectionViewCell.swift */,
+				70E4E03224C4EE04009D0BFC /* ErrorCollectionViewCell.xib */,
 				70148B2B24C3930C00344E91 /* PhotoCollectionViewCell.swift */,
 				70148B2C24C3930C00344E91 /* PhotoCollectionViewCell.xib */,
 			);
@@ -664,9 +676,11 @@
 			files = (
 				70148AF324C25B7A00344E91 /* MovieTableViewCell.xib in Resources */,
 				7049A6F624C1351C00B134EC /* LaunchScreen.storyboard in Resources */,
+				70E4E03524C4EE04009D0BFC /* EmptyCollectionViewCell.xib in Resources */,
 				70148B2424C376E800344E91 /* MovieDetails.storyboard in Resources */,
 				7049A6F324C1351C00B134EC /* Assets.xcassets in Resources */,
 				70148AE824C2218800344E91 /* movies.json in Resources */,
+				70E4E03624C4EE04009D0BFC /* ErrorCollectionViewCell.xib in Resources */,
 				70148B2E24C3930C00344E91 /* PhotoCollectionViewCell.xib in Resources */,
 				70148B2824C37E3800344E91 /* MovieDetailsHeaderView.xib in Resources */,
 				7049A6F124C1351A00B134EC /* Main.storyboard in Resources */,
@@ -837,6 +851,7 @@
 				70E4E01C24C3B51A009D0BFC /* MovieFlickrPhotosUseCase.swift in Sources */,
 				70E4E01824C3B161009D0BFC /* MovieFlickrPhotosRequest.swift in Sources */,
 				7049A77924C1364800B134EC /* Fetcher.swift in Sources */,
+				70E4E03324C4EE04009D0BFC /* EmptyCollectionViewCell.swift in Sources */,
 				70E4E01624C3B023009D0BFC /* Photo.swift in Sources */,
 				70148AFD24C27CF300344E91 /* MoviesListingRepository.swift in Sources */,
 				70148B0124C2828600344E91 /* MoviesListingPresenter.swift in Sources */,
@@ -850,6 +865,7 @@
 				70E4E02E24C48BFE009D0BFC /* DataStoreFactory.swift in Sources */,
 				70E4E01A24C3B3C9009D0BFC /* MovieFlickrPhotosRepository.swift in Sources */,
 				7049A6EE24C1351A00B134EC /* MoviesListingViewController.swift in Sources */,
+				70E4E03424C4EE04009D0BFC /* ErrorCollectionViewCell.swift in Sources */,
 				7049A6EA24C1351A00B134EC /* AppDelegate.swift in Sources */,
 				70148AFB24C274D400344E91 /* MoviesListingViewController+TableViewExtension.swift in Sources */,
 				70E4E01224C3B00D009D0BFC /* PhotosResponse.swift in Sources */,

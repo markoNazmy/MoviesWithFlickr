@@ -39,6 +39,8 @@ class MovieDetailsViewController: UIViewController {
         flowLayout.delegate = self
         collectionView.register(supplementaryViewType: MovieDetailsHeaderView.self, ofKind: UICollectionView.elementKindSectionHeader)
         collectionView.register(cellType: PhotoCollectionViewCell.self)
+        collectionView.register(cellType: EmptyCollectionViewCell.self)
+        collectionView.register(cellType: ErrorCollectionViewCell.self)
     }
 
 }

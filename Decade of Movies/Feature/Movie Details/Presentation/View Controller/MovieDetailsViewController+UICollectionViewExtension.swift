@@ -12,16 +12,35 @@ import UIKit
 extension MovieDetailsViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     public func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
-        return presenter?.photos.count ?? 0
+        
+        switch presenter.viewMode {
+        case .data:
+            return presenter?.photos.count ?? 0
+        case .empty, .error:
+            return 1
+        }
     }
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        presenter.pageIfNeeded(indexPath: indexPath)
-        let photoCell: PhotoCollectionViewCell = collectionView.dequeueReusableCell(for: indexPath)
-        let photo = presenter.photos[indexPath.row]
-        photoCell.configureImageView(url: "https://farm\(photo.farm ?? 0).static.flickr.com/\(photo.server ?? "")/\(photo.id ?? "")_\(photo.secret ?? "").jpg")
-        return photoCell
+        switch presenter.viewMode {
+        case .data:
+            presenter.pageIfNeeded(indexPath: indexPath)
+            let photoCell: PhotoCollectionViewCell = collectionView.dequeueReusableCell(for: indexPath)
+            let photo = presenter.photos[indexPath.row]
+            photoCell.configureImageView(url: "https://farm\(photo.farm ?? 0).static.flickr.com/\(photo.server ?? "")/\(photo.id ?? "")_\(photo.secret ?? "").jpg")
+            return photoCell
+        case .empty:
+            let emptyCell: EmptyCollectionViewCell = collectionView.dequeueReusableCell(for: indexPath)
+            return emptyCell
+        case .error:
+            let errorCell: ErrorCollectionViewCell = collectionView.dequeueReusableCell(for: indexPath)
+            errorCell.configureImageView { [weak self] in
+                self?.presenter.getMoviePhotos()
+            }
+            return errorCell
+        }
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -32,7 +51,13 @@ extension MovieDetailsViewController: UICollectionViewDataSource, UICollectionVi
     }
     
     func collectionView(_: UICollectionView, layout _: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (collectionView.frame.width / 2) - 5, height: (collectionView.frame.width / 2))
+        
+        switch presenter.viewMode {
+        case .data:
+            return CGSize(width: (collectionView.frame.width / 2) - 5, height: (collectionView.frame.width / 2))
+        case .empty, .error:
+            return CGSize(width: collectionView.frame.width, height: (view.frame.height / 2))
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {

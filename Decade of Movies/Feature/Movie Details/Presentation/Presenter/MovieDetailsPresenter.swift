@@ -15,25 +15,40 @@ protocol MovieDetailsView: class {
 
 class MovieDetailsPresenter {
     
+    enum ViewMode {
+        case data
+        case empty
+        case error
+    }
+    
     let movieFlickrPhotosUseCase = MovieFlickrPhotosUseCase()
     let movieMainPhotoUseCase = MovieMainPhotoUseCase()
     weak var view: MovieDetailsView!
     
     var movie: Movie!
     var photos: [Photo] = []
+    var viewMode: ViewMode = .data
         
     init(view: MovieDetailsView) {
         self.view = view
     }
     
     func getMoviePhotos() {
+        viewMode = .data
+        view.refreshCollectionView()
         movieFlickrPhotosUseCase.excute(movieTitle: movie.title ?? "") {[weak self] (result) in
             switch result {
             case .success(let response):
                 self?.photos.append(contentsOf: response.photos?.photo ?? [])
+                if self?.photos.isEmpty == true {
+                    self?.viewMode = .empty
+                } else {
+                    self?.viewMode = .data
+                }
                 self?.view.refreshCollectionView()
-            case .failure(let error):
-                break
+            case .failure:
+                self?.viewMode = .error
+                self?.view.refreshCollectionView()
             }
         }
     }
@@ -43,7 +58,7 @@ class MovieDetailsPresenter {
             switch result {
             case .success(let response):
                 self?.view.setupMovieMainPhoto(url: response ?? "")
-            case .failure(let error):
+            default:
                 break
             }
         }

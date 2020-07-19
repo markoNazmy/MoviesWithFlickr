@@ -50,7 +50,7 @@
                                             <constraint firstAttribute="width" constant="100" id="sRO-jG-ejs"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No data found !!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z4Q-m3-4af">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No movies found !!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z4Q-m3-4af">
                                         <rect key="frame" x="20" y="357" width="374" height="23"/>
                                         <fontDescription key="fontDescription" name="Georgia-Bold" family="Georgia" pointSize="20"/>
                                         <nil key="highlightedColor"/>
@@ -76,7 +76,7 @@
                                             <constraint firstAttribute="height" constant="100" id="V3Q-U9-WF4"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Something went wrong !!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a70-sn-2CI">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sorry, Something went wrong !!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a70-sn-2CI">
                                         <rect key="frame" x="20" y="361" width="374" height="23"/>
                                         <fontDescription key="fontDescription" name="Georgia-Bold" family="Georgia" pointSize="20"/>
                                         <nil key="highlightedColor"/>
