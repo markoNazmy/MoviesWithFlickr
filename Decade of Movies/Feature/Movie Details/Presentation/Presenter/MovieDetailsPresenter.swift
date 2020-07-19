@@ -26,7 +26,7 @@ class MovieDetailsPresenter {
     weak var view: MovieDetailsView!
     
     var movie: Movie!
-    var photos: [Photo] = []
+    var photos: [String] = []
     var viewMode: ViewMode = .data
         
     init(view: MovieDetailsView) {
@@ -43,7 +43,7 @@ class MovieDetailsPresenter {
         movieFlickrPhotosUseCase.excute(movieTitle: movie.title ?? "") {[weak self] (result) in
             switch result {
             case .success(let response):
-                self?.photos.append(contentsOf: response.photos?.photo ?? [])
+                self?.photos.append(contentsOf: response)
                 if self?.photos.isEmpty == true {
                     self?.viewMode = .empty
                 } else {

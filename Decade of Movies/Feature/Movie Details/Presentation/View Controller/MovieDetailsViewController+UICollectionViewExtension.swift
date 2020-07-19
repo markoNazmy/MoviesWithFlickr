@@ -28,7 +28,7 @@ extension MovieDetailsViewController: UICollectionViewDataSource, UICollectionVi
             presenter.pageIfNeeded(indexPath: indexPath)
             let photoCell: PhotoCollectionViewCell = collectionView.dequeueReusableCell(for: indexPath)
             let photo = presenter.photos[indexPath.row]
-            photoCell.configureImageView(url: "https://farm\(photo.farm ?? 0).static.flickr.com/\(photo.server ?? "")/\(photo.id ?? "")_\(photo.secret ?? "").jpg")
+            photoCell.configureImageView(url: photo)
             return photoCell
         case .empty:
             let emptyCell: EmptyCollectionViewCell = collectionView.dequeueReusableCell(for: indexPath)

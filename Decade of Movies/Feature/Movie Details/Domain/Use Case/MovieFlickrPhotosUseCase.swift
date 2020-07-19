@@ -8,8 +8,10 @@
 
 import Foundation
 
+typealias MovieFlickrPhotosURLsResult = (Result<[String], AppError>) -> (Void)
+
 protocol MovieFlickrPhotosUseCaseProtocol {
-    func excute(movieTitle: String, result: @escaping MovieFlickrPhotosResult)
+    func excute(movieTitle: String, result: @escaping MovieFlickrPhotosURLsResult)
 }
 
 class MovieFlickrPhotosUseCase: MovieFlickrPhotosUseCaseProtocol {
@@ -27,7 +29,7 @@ class MovieFlickrPhotosUseCase: MovieFlickrPhotosUseCaseProtocol {
         self.repository = repository
     }
     
-    func excute(movieTitle: String, result: @escaping MovieFlickrPhotosResult) {
+    func excute(movieTitle: String, result: @escaping MovieFlickrPhotosURLsResult) {
         
         if let totalPagesCount = totalPagesCount, (totalPagesCount == 0 || totalPagesCount > currentPage) {
             return
@@ -36,13 +38,14 @@ class MovieFlickrPhotosUseCase: MovieFlickrPhotosUseCaseProtocol {
         getPhotosList(movieTitle, result)
     }
     
-    fileprivate func getPhotosList(_ movieTitle: String, _ result: @escaping MovieFlickrPhotosResult) {
+    fileprivate func getPhotosList(_ movieTitle: String, _ result: @escaping MovieFlickrPhotosURLsResult) {
         
         repository.fetchMoviesList(movieTitle: movieTitle, page: currentPage, photosPerPage: pageSize) { [weak self] resp in
             switch resp {
             case .success(let response):
                 self?.currentPage += 1
-                result(.success(response: response))
+                let photos = response.photos?.photo?.map{ return "https://farm\($0.farm ?? 0).static.flickr.com/\($0.server ?? "")/\($0.id ?? "")_\($0.secret ?? "").jpg" } ?? []
+                result(.success(response: photos))
             case .failure(let error):
                 result(.failure(error: error))
             }
