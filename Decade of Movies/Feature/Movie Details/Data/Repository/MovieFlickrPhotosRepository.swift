@@ -13,7 +13,7 @@ typealias MovieFlickrPhotosResult = (Result<PhotosResponse, AppError>) -> (Void)
 struct MovieFlickrPhotosRepository {
     
     static func fetchMoviesList(movieTitle: String, page: Int, photosPerPage: Int, result: @escaping MovieFlickrPhotosResult) {
-        NetworkFetcher.shared.start(request: MovieFlickrPhotosRequest.movieFlickrPhotosRequest(movieTitle: movieTitle, page: page, photosPerPage: photosPerPage)) { response in
+        DataStoreFactory.getFetcher(type: .network).start(request: MovieFlickrPhotosRequest.movieFlickrPhotosRequest(movieTitle: movieTitle, page: page, photosPerPage: photosPerPage)) { response in
             result(response)
         }
     }

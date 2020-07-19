@@ -27,6 +27,7 @@ class MoviesListingPresenter {
     
     let moviesListingUseCase = MoviesListingUseCase()
     let filteredMoviesListUseCase = FilteredMoviesListUseCase()
+    
     weak var view: MoviesListingView!
     
     var movies: [Movie] = []
@@ -56,7 +57,7 @@ class MoviesListingPresenter {
                 } else {
                     self?.view.refreshListWithAnimation()
                 }
-            case .failure(_):
+            case .failure:
                 self?.retryAction = {
                     self?.getAllMovies()
                 }
@@ -65,7 +66,7 @@ class MoviesListingPresenter {
             self?.view.hideLoadingView()
         }
     }
-    
+
     func getAllMovies(withKey key: String) {
         view.hideErrorView()
         view.hideEmptyStateView()

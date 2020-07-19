@@ -13,7 +13,7 @@ typealias MoviesListResult = (Result<Movies, AppError>) -> (Void)
 struct MoviesListingRepository {
     
     static func fetchMoviesList(result: @escaping MoviesListResult) {
-        LocalJsonFetcher.shared.start(request: MoviesListRequest.getLocalMovies) { response in
+        DataStoreFactory.getFetcher(type: .local).start(request: MoviesListRequest.getLocalMovies) { response in
             result(response)
         }
     }
