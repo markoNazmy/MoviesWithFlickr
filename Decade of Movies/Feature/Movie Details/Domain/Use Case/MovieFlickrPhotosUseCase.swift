@@ -12,13 +12,17 @@ class MovieFlickrPhotosUseCase {
     var currentPage: Int = 1
     var pageSize: Int = 20
     var totalPagesCount: Int?
-    
+        
     func excute(movieTitle: String, result: @escaping MovieFlickrPhotosResult) {
         
         if let totalPagesCount = totalPagesCount, (totalPagesCount == 0 || totalPagesCount > currentPage) {
             return
         }
         
+        getPhotosList(movieTitle, result)
+    }
+    
+    fileprivate func getPhotosList(_ movieTitle: String, _ result: @escaping MovieFlickrPhotosResult) {
         MovieFlickrPhotosRepository.fetchMoviesList(movieTitle: movieTitle, page: currentPage, photosPerPage: pageSize) { [weak self] resp in
             switch resp {
             case .success(let response):
