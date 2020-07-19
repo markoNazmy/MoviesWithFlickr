@@ -20,7 +20,7 @@ extension MoviesListingViewController: UISearchBarDelegate {
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        let searchQuery = searchBar.text?.trimmingCharacters(in: .whitespacesAndNewlines).lowercased() ?? "" // check minimum length after removing extra space
+        let searchQuery = searchBar.text?.trimmingCharacters(in: .whitespacesAndNewlines).lowercased() ?? ""
         if searchQuery.count >= presenter.minQueryLength && !searchQuery.isEmpty {
             presenter.getAllMovies(withKey: searchQuery)
         } else if searchQuery.isEmpty {

@@ -27,10 +27,10 @@
                 </subviews>
             </view>
             <constraints>
-                <constraint firstItem="bu4-xD-z82" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="L8A-Rt-f2d"/>
-                <constraint firstItem="bu4-xD-z82" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" id="TE9-wY-zan"/>
-                <constraint firstItem="bu4-xD-z82" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" id="cMZ-vb-gpV"/>
-                <constraint firstItem="bu4-xD-z82" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="ovH-Ub-8rQ"/>
+                <constraint firstAttribute="bottom" secondItem="bu4-xD-z82" secondAttribute="bottom" id="6bX-Ep-GAs"/>
+                <constraint firstItem="bu4-xD-z82" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="fjc-T4-16u"/>
+                <constraint firstAttribute="trailing" secondItem="bu4-xD-z82" secondAttribute="trailing" id="hOd-3v-qnW"/>
+                <constraint firstItem="bu4-xD-z82" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="kLk-ds-fsY"/>
             </constraints>
             <point key="canvasLocation" x="131" y="154"/>
         </collectionViewCell>

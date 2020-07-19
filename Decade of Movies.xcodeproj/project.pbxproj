@@ -42,7 +42,7 @@
 		7049A70124C1351C00B134EC /* Decade_of_MoviesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7049A70024C1351C00B134EC /* Decade_of_MoviesTests.swift */; };
 		7049A70C24C1351C00B134EC /* Decade_of_MoviesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7049A70B24C1351C00B134EC /* Decade_of_MoviesUITests.swift */; };
 		7049A77924C1364800B134EC /* Fetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7049A74E24C1364800B134EC /* Fetcher.swift */; };
-		7049A77A24C1364800B134EC /* BaseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7049A75124C1364800B134EC /* BaseRequest.swift */; };
+		7049A77A24C1364800B134EC /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7049A75124C1364800B134EC /* Request.swift */; };
 		7049A77B24C1364800B134EC /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7049A75324C1364800B134EC /* AppError.swift */; };
 		70E4E01224C3B00D009D0BFC /* PhotosResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E4E01124C3B00D009D0BFC /* PhotosResponse.swift */; };
 		70E4E01424C3B016009D0BFC /* Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E4E01324C3B016009D0BFC /* Photos.swift */; };
@@ -116,7 +116,7 @@
 		7049A70B24C1351C00B134EC /* Decade_of_MoviesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decade_of_MoviesUITests.swift; sourceTree = "<group>"; };
 		7049A70D24C1351C00B134EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7049A74E24C1364800B134EC /* Fetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fetcher.swift; sourceTree = "<group>"; };
-		7049A75124C1364800B134EC /* BaseRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseRequest.swift; sourceTree = "<group>"; };
+		7049A75124C1364800B134EC /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		7049A75324C1364800B134EC /* AppError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		70E4E01124C3B00D009D0BFC /* PhotosResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosResponse.swift; sourceTree = "<group>"; };
 		70E4E01324C3B016009D0BFC /* Photos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photos.swift; sourceTree = "<group>"; };
@@ -312,7 +312,6 @@
 		7049A6E824C1351A00B134EC /* Decade of Movies */ = {
 			isa = PBXGroup;
 			children = (
-				70148AE624C2217200344E91 /* Files */,
 				7049A74F24C1364800B134EC /* Base */,
 				7049A74C24C1364800B134EC /* Common */,
 				7049A71924C1364800B134EC /* Module */,
@@ -448,9 +447,10 @@
 		7049A74C24C1364800B134EC /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				70148AE624C2217200344E91 /* Files */,
+				70E4E02524C3EF0C009D0BFC /* Extensions */,
 				70148AE924C254A500344E91 /* Result */,
 				7049A74D24C1364800B134EC /* Data Fetchers */,
-				70148B0824C2B08E00344E91 /* UIView+Extention.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -477,7 +477,7 @@
 		7049A75024C1364800B134EC /* Request */ = {
 			isa = PBXGroup;
 			children = (
-				7049A75124C1364800B134EC /* BaseRequest.swift */,
+				7049A75124C1364800B134EC /* Request.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -488,6 +488,14 @@
 				7049A75324C1364800B134EC /* AppError.swift */,
 			);
 			path = Error;
+			sourceTree = "<group>";
+		};
+		70E4E02524C3EF0C009D0BFC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				70148B0824C2B08E00344E91 /* UIView+Extention.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		791E840FB0766311A6A2C9FE /* Frameworks */ = {
@@ -781,7 +789,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7049A77A24C1364800B134EC /* BaseRequest.swift in Sources */,
+				7049A77A24C1364800B134EC /* Request.swift in Sources */,
 				70148B0724C2ABCF00344E91 /* MoviesListingViewController+UISearchBarDelegateExtension.swift in Sources */,
 				70E4E01C24C3B51A009D0BFC /* MovieFlickrPhotosUseCase.swift in Sources */,
 				70E4E01824C3B161009D0BFC /* MovieFlickrPhotosRequest.swift in Sources */,

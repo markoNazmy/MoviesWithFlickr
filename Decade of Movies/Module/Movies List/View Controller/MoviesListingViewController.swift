@@ -36,10 +36,11 @@ class MoviesListingViewController: UIViewController {
         tableView.register(UINib(nibName: MovieTableViewCell.reuseIdentifier, bundle: nil), forCellReuseIdentifier: MovieTableViewCell.reuseIdentifier)
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.estimatedRowHeight = 270
+        tableView.estimatedRowHeight = 50
         tableView.rowHeight = UITableView.automaticDimension
         tableView.scrollsToTop = true
-    }
+
+     }
     
     func setUpSearchController() {
         searchController.searchBar.placeholder = "Search For Movies"
@@ -49,6 +50,7 @@ class MoviesListingViewController: UIViewController {
         navigationItem.titleView = searchController.searchBar
         navigationController?.navigationBar.topItem?.title = ""
         searchController.searchBar.delegate = self
+
     }
     
     @IBAction func retryButtonTabbed(_ sender: Any) {
@@ -69,4 +71,5 @@ class MoviesListingViewController: UIViewController {
     func scrollToTop() {
         self.tableView.scrollRectToVisible(CGRect(x: 0, y: 0, width: 1, height: 1), animated: true)
     }
+
 }

@@ -27,12 +27,12 @@
         <!--Movie Details-->
         <scene sceneID="n9c-Qo-USo">
             <objects>
-                <viewController storyboardIdentifier="MovieDetailsViewController" id="Wt2-BM-cdk" customClass="MovieDetailsViewController" customModule="Decade_of_Movies" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MovieDetailsViewController" automaticallyAdjustsScrollViewInsets="NO" id="Wt2-BM-cdk" customClass="MovieDetailsViewController" customModule="Decade_of_Movies" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Uhs-ff-pBW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Deo-NS-cVy">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Deo-NS-cVy">
                                 <rect key="frame" x="16" y="104" width="382" height="758"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="jfN-an-hOt">

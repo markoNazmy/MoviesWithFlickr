@@ -144,12 +144,12 @@
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <constraints>
-                        <constraint firstAttribute="bottom" secondItem="cFi-BK-lpc" secondAttribute="bottom" constant="16" id="0r7-0e-OES"/>
+                        <constraint firstAttribute="bottom" secondItem="cFi-BK-lpc" secondAttribute="bottom" priority="999" constant="16" id="0r7-0e-OES"/>
                         <constraint firstItem="wrD-Wj-8hJ" firstAttribute="top" secondItem="eCe-ly-10V" secondAttribute="top" id="IBG-WP-egz"/>
                         <constraint firstItem="cFi-BK-lpc" firstAttribute="leading" secondItem="wrD-Wj-8hJ" secondAttribute="trailing" constant="8" id="MnP-YG-XLZ"/>
                         <constraint firstItem="wrD-Wj-8hJ" firstAttribute="height" secondItem="eCe-ly-10V" secondAttribute="height" multiplier="0.65" id="RnE-Y1-poN"/>
                         <constraint firstItem="wrD-Wj-8hJ" firstAttribute="leading" secondItem="eCe-ly-10V" secondAttribute="leading" id="WtM-lc-Uih"/>
-                        <constraint firstItem="cFi-BK-lpc" firstAttribute="top" secondItem="eCe-ly-10V" secondAttribute="top" id="YLc-Qo-ZGZ"/>
+                        <constraint firstItem="cFi-BK-lpc" firstAttribute="top" secondItem="eCe-ly-10V" secondAttribute="top" priority="999" id="YLc-Qo-ZGZ"/>
                         <constraint firstAttribute="trailing" secondItem="cFi-BK-lpc" secondAttribute="trailing" constant="20" symbolic="YES" id="dgq-st-WLL"/>
                         <constraint firstItem="wrD-Wj-8hJ" firstAttribute="width" secondItem="eCe-ly-10V" secondAttribute="width" multiplier="0.150635" id="ebe-uP-acG"/>
                     </constraints>

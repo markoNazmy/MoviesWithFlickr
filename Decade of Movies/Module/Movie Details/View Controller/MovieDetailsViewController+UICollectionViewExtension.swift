@@ -32,7 +32,7 @@ extension MovieDetailsViewController: UICollectionViewDataSource, UICollectionVi
     }
     
     func collectionView(_: UICollectionView, layout _: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (collectionView.frame.width / 2) - 10, height: (collectionView.frame.width / 2))
+        return CGSize(width: (collectionView.frame.width / 2) - 5, height: (collectionView.frame.width / 2))
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {

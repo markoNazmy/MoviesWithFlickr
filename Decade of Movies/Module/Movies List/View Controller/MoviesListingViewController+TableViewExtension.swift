@@ -9,7 +9,9 @@
 import UIKit
 
 extension MoviesListingViewController: UITableViewDelegate, UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         switch presenter.viewMode {
         case .singleRow:
             return presenter.movies.count
@@ -20,6 +22,7 @@ extension MoviesListingViewController: UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell: MovieTableViewCell = tableView.dequeueReusableCell(for: indexPath)
         var movie: Movie!
         switch presenter.viewMode {
@@ -35,6 +38,7 @@ extension MoviesListingViewController: UITableViewDelegate, UITableViewDataSourc
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
+        
         switch presenter.viewMode {
         case .singleRow:
             return 1
@@ -44,6 +48,7 @@ extension MoviesListingViewController: UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
         switch presenter.viewMode {
         case .singleRow:
             return "Movies"
