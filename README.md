@@ -12,11 +12,11 @@ The past decade held a lot of movies, some left a mark and some were just a set 
 
 ## Libraries
 
-  * 'SwiftLint' and 'SwiftFormat' for keeping the code clean without warning and bad dirty code.
-  * 'Alamofire' for networking and I used the cache mechanism in Alamofire to cache my requests.
-  * 'Kingfisher' for downloading images and caching it.
-  * 'Reusable' for making it super-easy to create, dequeue and instantiate reusable views.
-  * 'Quick and Nimble' for unit testing the app.
+  * '[SwiftLint](https://github.com/realm/SwiftLint)' and '[SwiftFormat](https://github.com/nicklockwood/SwiftFormat)' for keeping the code clean without warning and bad dirty code.
+  * '[Alamofire](https://github.com/Alamofire/Alamofire)' for networking and I used the cache mechanism in Alamofire to cache my requests.
+  * '[Kingfisher](https://github.com/onevcat/Kingfisher)' for downloading images and caching it.
+  * '[Reusable](https://github.com/AliSoftware/Reusable)' for making it super-easy to create, dequeue and instantiate reusable views.
+  * '[Quick](https://github.com/Quick/Quick) and [Nimble](https://github.com/Quick/Nimble)' for unit testing the app.
 
 ## Author
 
