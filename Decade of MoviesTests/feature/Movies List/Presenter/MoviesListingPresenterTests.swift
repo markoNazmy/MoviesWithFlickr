@@ -18,7 +18,7 @@ class MoviesListingPresenterTests: QuickSpec {
     
     override func spec() {
         
-        describe("MoviesListingUseCase") {
+        describe("MoviesListingPresenter") {
             describe("its success case") {
                 it("must return a single row view mode value") {
                     self.sucMoviesListingPresenter.getAllMovies()

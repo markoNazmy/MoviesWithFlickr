@@ -36,8 +36,9 @@ extension MoviesListingViewController: UITableViewDelegate, UITableViewDataSourc
         default:
             break
         }
-        
-        cell.configure(title: movie.title ?? "", rating: movie.rating ?? 0)
+        if movie != nil {
+            cell.configure(title: movie.title ?? "", rating: movie.rating ?? 0)
+        }
         return cell
     }
     

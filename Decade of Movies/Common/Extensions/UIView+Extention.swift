@@ -11,7 +11,7 @@ import UIKit
 extension UIView {
     
     public enum AnimationDuration {
-        public static let standard: TimeInterval = 0.2
+        public static let standard: TimeInterval = 0.1
         public static let short: TimeInterval = 0.6
         public static let long: TimeInterval = 1.2
     }

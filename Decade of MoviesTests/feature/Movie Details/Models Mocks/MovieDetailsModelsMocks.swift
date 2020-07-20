@@ -17,8 +17,7 @@ var photosResponse1 = PhotosResponse(photos: Photos(page: 1,
                                                             Photo(id: "", owner: "", secret: "", server: "", farm: 0, title: "", ispublic: 1, isfriend: 1, isfamily: 0),
                                                             Photo(id: "", owner: "", secret: "", server: "", farm: 0, title: "", ispublic: 1, isfriend: 1, isfamily: 0),
                                                             Photo(id: "", owner: "", secret: "", server: "", farm: 0, title: "", ispublic: 1, isfriend: 1, isfamily: 0),
-                                                            Photo(id: "", owner: "", secret: "", server: "", farm: 0, title: "", ispublic: 1, isfriend: 1, isfamily: 0),
-]),
+                                                            Photo(id: "", owner: "", secret: "", server: "", farm: 0, title: "", ispublic: 1, isfriend: 1, isfamily: 0)]),
                                      stat: "")
 
 var photosResponse2 = PhotosResponse(photos: Photos(page: 2,
@@ -29,8 +28,7 @@ var photosResponse2 = PhotosResponse(photos: Photos(page: 2,
                                                             Photo(id: "", owner: "", secret: "", server: "", farm: 0, title: "", ispublic: 1, isfriend: 1, isfamily: 0),
                                                             Photo(id: "", owner: "", secret: "", server: "", farm: 0, title: "", ispublic: 1, isfriend: 1, isfamily: 0),
                                                             Photo(id: "", owner: "", secret: "", server: "", farm: 0, title: "", ispublic: 1, isfriend: 1, isfamily: 0),
-                                                            Photo(id: "", owner: "", secret: "", server: "", farm: 0, title: "", ispublic: 1, isfriend: 1, isfamily: 0),
-]),
+                                                            Photo(id: "", owner: "", secret: "", server: "", farm: 0, title: "", ispublic: 1, isfriend: 1, isfamily: 0)]),
                                      stat: "")
 
 var photosEmptyResponse = PhotosResponse(photos: Photos(page: 0,

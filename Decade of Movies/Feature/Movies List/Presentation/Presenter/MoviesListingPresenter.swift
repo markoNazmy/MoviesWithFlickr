@@ -82,7 +82,6 @@ class MoviesListingPresenter {
             case .success(let categorizedMovies):
                 self?.viewMode = .sections
                 self?.categorizedMovies = categorizedMovies
-                self?.movies = categorizedMovies.first?.value ?? []
                 if self?.categorizedMovies.values.isEmpty == true {
                     self?.viewMode = .empty
                     self?.view?.showEmptyStateView()

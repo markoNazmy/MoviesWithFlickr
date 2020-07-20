@@ -36,7 +36,7 @@ class FilteredMoviesListUseCaseTests: QuickSpec {
                             expect(error).to(beAnInstanceOf(Movies.self))
                         }
                     }
-                    
+                    expect(!self.sucFilteredMoviesListUseCase.oldSearches.isEmpty).to(beTruthy())
                 }
             }
             
@@ -50,7 +50,7 @@ class FilteredMoviesListUseCaseTests: QuickSpec {
                             expect(error).to(beAnInstanceOf(AppError.self))
                         }
                     }
-                    
+                    expect(self.failFilteredMoviesListUseCase.oldSearches.isEmpty).to(beTruthy())
                 }
             }
         }

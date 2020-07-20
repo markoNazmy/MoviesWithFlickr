@@ -27,6 +27,7 @@ class MovieDetailsPresenter {
     
     var movie: Movie!
     var photos: [String] = []
+    var mainPhoto: String?
     var viewMode: ViewMode = .data
         
     init(view: MovieDetailsView) {
@@ -40,7 +41,7 @@ class MovieDetailsPresenter {
     }
     
     func getMoviePhotos() {
-        movieFlickrPhotosUseCase.excute(movieTitle: movie.title ?? "") {[weak self] (result) in
+        movieFlickrPhotosUseCase.excute(movieTitle: movie?.title ?? "") {[weak self] (result) in
             switch result {
             case .success(let response):
                 self?.photos.append(contentsOf: response)
@@ -49,19 +50,20 @@ class MovieDetailsPresenter {
                 } else {
                     self?.viewMode = .data
                 }
-                self?.view.refreshCollectionView()
+                self?.view?.refreshCollectionView()
             case .failure:
                 self?.viewMode = .error
-                self?.view.refreshCollectionView()
+                self?.view?.refreshCollectionView()
             }
         }
     }
     
     func getMovieMainPhoto() {
-        movieMainPhotoUseCase.excute(movieTitle: movie.title ?? "") {[weak self] (result) in
+        movieMainPhotoUseCase.excute(movieTitle: movie?.title ?? "") {[weak self] (result) in
             switch result {
             case .success(let response):
-                self?.view.setupMovieMainPhoto(url: response ?? "")
+                self?.mainPhoto = response
+                self?.view?.setupMovieMainPhoto(url: response ?? "")
             default:
                 break
             }
@@ -69,7 +71,7 @@ class MovieDetailsPresenter {
     }
     
     func getFullString(array: [String]?) -> String? {
-        if var reducedString = array?.reduce("", { return "\($0 ?? ""), \($1)"}) {
+        if var reducedString = array?.reduce("", { return "\($0 ?? ""), \($1)" }) {
             reducedString.removeFirst()
             reducedString.removeFirst()
             return reducedString
