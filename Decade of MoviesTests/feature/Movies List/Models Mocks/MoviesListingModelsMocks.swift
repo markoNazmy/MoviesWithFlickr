@@ -36,3 +36,5 @@ var categorizedMovies: [Int: [Movie]] = [2008: [ Movie(title: "movie1", year: 20
                                                  Movie(title: "movie7", year: 2009, cast: ["name", "name"], genres: ["comedy"], rating: 5)]]
 
 var emptyCategorizedMovies: [Int: [Movie]] = [:]
+
+var movieResponse = Movie(title: "movie1", year: 2008, cast: ["name1", "name2"], genres: ["comedy", "drama"], rating: 5)

@@ -52,6 +52,20 @@ class MovieDetailsPresenterTests: QuickSpec {
                     expect(self.emptyMovieDetailsPresenter.mainPhoto).to(beNil())
                 }
             }
+            
+            describe("its cast and genres creation") {
+                it("must return a vaild value") {
+                    
+                    expect(self.sucMovieDetailsPresenter.getFullString(array: movieResponse.genres)).to(equal("comedy, drama"))
+                    expect(self.sucMovieDetailsPresenter.getFullString(array: movieResponse.cast)).to(equal("name1, name2"))
+                }
+                
+                it("must return a nil value with nil cast and nil genres") {
+                    
+                    expect(self.sucMovieDetailsPresenter.getFullString(array: nil)).to(beNil())
+                    expect(self.sucMovieDetailsPresenter.getFullString(array: nil)).to(beNil())
+                }
+            }
         }
     }
     

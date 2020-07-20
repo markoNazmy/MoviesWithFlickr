@@ -47,7 +47,8 @@ class MovieFlickrPhotosUseCaseTests: QuickSpec {
             }
             
             describe("its failure case") {
-                it("must return an error") {
+                it("must return an error without changing the page value") {
+                    expect(self.failMovieFlickrPhotosUseCase.currentPage).to(be(1))
                     self.failMovieFlickrPhotosUseCase.excute(movieTitle: "") { result in
                         switch result {
                         case .success(let response):
@@ -56,6 +57,7 @@ class MovieFlickrPhotosUseCaseTests: QuickSpec {
                             expect(error).to(beAnInstanceOf(AppError.self))
                         }
                     }
+                    expect(self.failMovieFlickrPhotosUseCase.currentPage).to(be(1))
                 }
             }
         }
