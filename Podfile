@@ -7,17 +7,17 @@ target 'Decade of Movies' do
 
   # Pods for Decade of Movies
 
-  pod 'SwiftLint'
-  pod 'SwiftFormat'
+  pod 'SwiftLint', '0.39.2'
+  pod 'SwiftFormat', '0.44.17'
   pod 'Alamofire', '5.0'
-  pod 'Kingfisher'
-  pod 'Reusable'
+  pod 'Kingfisher', '5.14.1'
+  pod 'Reusable', '4.1.1'
 
   target 'Decade of MoviesTests' do
     inherit! :search_paths
     # Pods for testing
-    pod 'Quick'
-    pod 'Nimble'
+    pod 'Quick', '3.0.0'
+    pod 'Nimble', '8.1.1'
   end
 
   target 'Decade of MoviesUITests' do
