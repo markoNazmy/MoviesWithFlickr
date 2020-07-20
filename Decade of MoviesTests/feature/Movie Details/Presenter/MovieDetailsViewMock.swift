@@ -12,11 +12,11 @@ import Foundation
 class MovieDetailsViewMock: MovieDetailsView {
     
     func refreshCollectionView() {
-        
+        // Empty
     }
     
     func setupMovieMainPhoto(url: String) {
-        
+        // Empty
     }
         
 }

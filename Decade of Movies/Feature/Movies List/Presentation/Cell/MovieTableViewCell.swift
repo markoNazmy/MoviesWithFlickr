@@ -6,8 +6,8 @@
 //  Copyright © 2020 MarkoNazmy. All rights reserved.
 //
 
-import UIKit
 import Reusable
+import UIKit
 
 class MovieTableViewCell: UITableViewCell, NibOwnerLoadable, Reusable {
     

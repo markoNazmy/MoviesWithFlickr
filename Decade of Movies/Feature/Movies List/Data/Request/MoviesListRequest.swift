@@ -6,7 +6,6 @@
 //  Copyright © 2020 MarkoNazmy. All rights reserved.
 //
 
-import Foundation
 import Alamofire
 
 enum MoviesListRequest: Request {
@@ -33,7 +32,7 @@ enum MoviesListRequest: Request {
         return .returnCacheDataElseLoad
     }
     
-    var parameters: [String : String]? {
+    var parameters: [String: String]? {
         return nil
     }
     

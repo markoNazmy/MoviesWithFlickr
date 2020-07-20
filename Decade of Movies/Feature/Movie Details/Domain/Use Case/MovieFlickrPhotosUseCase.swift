@@ -8,7 +8,7 @@
 
 import Foundation
 
-typealias MovieFlickrPhotosURLsResult = (Result<[String], AppError>) -> (Void)
+typealias MovieFlickrPhotosURLsResult = (Result<[String], AppError>) -> Void
 
 protocol MovieFlickrPhotosUseCaseProtocol {
     func excute(movieTitle: String, result: @escaping MovieFlickrPhotosURLsResult)
@@ -44,7 +44,7 @@ class MovieFlickrPhotosUseCase: MovieFlickrPhotosUseCaseProtocol {
             switch resp {
             case .success(let response):
                 self?.currentPage += 1
-                let photos = response.photos?.photo?.map{ return "https://farm\($0.farm ?? 0).static.flickr.com/\($0.server ?? "")/\($0.id ?? "")_\($0.secret ?? "").jpg" } ?? []
+                let photos = response.photos?.photo?.map { return "https://farm\($0.farm ?? 0).static.flickr.com/\($0.server ?? "")/\($0.id ?? "")_\($0.secret ?? "").jpg" } ?? []
                 result(.success(response: photos))
             case .failure(let error):
                 result(.failure(error: error))

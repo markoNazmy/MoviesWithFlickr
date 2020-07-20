@@ -13,8 +13,8 @@ import Kingfisher
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
-    let fiveDaysInSeconds: Double = 432000
-    let imageCacheSizeLimit: Int = 20000000
+    let fiveDaysInSeconds: Double = 432_000
+    let imageCacheSizeLimit: Int = 20_000_000
     // MARK: - Application Lifecycle
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -30,4 +30,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 }
-

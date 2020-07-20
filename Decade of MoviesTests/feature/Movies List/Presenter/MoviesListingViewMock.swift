@@ -12,31 +12,31 @@ import Foundation
 class MoviesListingViewMock: MoviesListingView {
     
     func refreshListWithAnimation() {
-        
+        // Empty
     }
     
     func showErrorView() {
-        
+        // Empty
     }
     
     func hideErrorView() {
-        
+        // Empty
     }
     
     func showLoadingView() {
-        
+        // Empty
     }
     
     func hideLoadingView() {
-        
+        // Empty
     }
     
     func showEmptyStateView() {
-        
+        // Empty
     }
     
     func hideEmptyStateView() {
-        
+        // Empty
     }
     
 }

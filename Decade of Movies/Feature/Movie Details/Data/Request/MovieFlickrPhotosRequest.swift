@@ -6,7 +6,6 @@
 //  Copyright © 2020 MarkoNazmy. All rights reserved.
 //
 
-import Foundation
 import Alamofire
 
 enum MovieFlickrPhotosRequest: Request {
@@ -36,7 +35,7 @@ enum MovieFlickrPhotosRequest: Request {
         return .returnCacheDataElseLoad
     }
     
-    var parameters: [String : String]? {
+    var parameters: [String: String]? {
         switch self {
         case .movieFlickrPhotosRequest(let movieTitle, let page, let photosPerPage):
             return ["method": "flickr.photos.search", "format": "json", "nojsoncallback": "1", "text": movieTitle, "page": "\(page)", "per_page": "\(photosPerPage)"]

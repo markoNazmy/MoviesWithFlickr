@@ -6,7 +6,6 @@
 //  Copyright © 2020 MarkoNazmy. All rights reserved.
 //
 
-import Foundation
 import Alamofire
 
 typealias MappedResult<T: Codable> = (Result<T, AppError>) -> Void
@@ -15,6 +14,7 @@ protocol Fetcher {
     
     // MARK: - Properties
     var validStatusCodes: CountableClosedRange<Int> { get }
+    
     // MARK: - Public functions
     
     /// Initiates a request, validates the response and maps the result to the supplied model or an error.

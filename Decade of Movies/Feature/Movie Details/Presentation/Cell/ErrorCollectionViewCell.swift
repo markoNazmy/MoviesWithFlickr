@@ -12,7 +12,7 @@ import Kingfisher
 
 public class ErrorCollectionViewCell: UICollectionViewCell, NibOwnerLoadable, Reusable {
 
-    var action: (()->(Void))!
+    var action: (() -> Void)!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -26,7 +26,7 @@ public class ErrorCollectionViewCell: UICollectionViewCell, NibOwnerLoadable, Re
         loadNibContent()
     }
     
-    func configureImageView(action: @escaping ()->(Void)) {
+    func configureImageView(action: @escaping () -> Void) {
         self.action = action
     }
     

@@ -59,9 +59,9 @@ class MoviesListingViewController: UIViewController {
     
     func navigateToMovieDetails(movie: Movie) {
         let storyboard = UIStoryboard(name: "MovieDetails", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "MovieDetailsViewController") as! MovieDetailsViewController
-        vc.movie = movie
-        self.navigationController?.pushViewController(vc, animated: true)
+        let movieDetailsVC = storyboard.instantiateViewController(withIdentifier: "MovieDetailsViewController") as! MovieDetailsViewController
+        movieDetailsVC.movie = movie
+        self.navigationController?.pushViewController(movieDetailsVC, animated: true)
     }
     
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {

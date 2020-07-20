@@ -3,32 +3,21 @@ excluded:
   - Pods
 opt_in_rules:
   - empty_count
-  - file_header
   - explicit_init
   - closure_spacing
   - overridden_super_call
   - redundant_nil_coalescing
   - private_outlet
-  - nimble_operator
   - operator_usage_whitespace
   - closure_end_indentation
   - first_where
-  - sorted_imports
   - object_literal
   - number_separator
   - prohibited_super_call
   - fatal_error_message
   - vertical_parameter_alignment_on_call
 
-file_header:
-  required_pattern: |
-                    \/\/         
-                    \/\/  .*?\.swift
-                    \/\/  //  Decade of Movies.*?
-                    \/\/
-                    \/\/  Created by .*? on \d{1,2}\/\d{1,2}\/\d{2}\.
-                    \/\/  Copyright © \d{4} MarkoNazmy\. All rights reserved\.
-                    \/\/
+
 identifier_name:
   excluded:
     - id
@@ -116,12 +105,6 @@ custom_rules:
     name: "Unused `didReceiveMemoryWarning` function"
     message: "Remove (probably) unused `didReceiveMemoryWarning` function."
     regex: 'didReceiveMemoryWarning'
-    severity: warning
-  if_as_guard: # From https://github.com/Carthage/Carthage
-    included: ".*.swift"
-    regex: '\n *if [^\{]+\{\s*return[^\n]*\n *\}(?! *else)'
-    name: "If as Guard"
-    message: "Don't use an if statement to just return – use guard for such cases instead."
     severity: warning
   newline_after_imports:
     regex: '(((import|@testable import) \w+( )*\s(?!(import|@testable import))(?!\s)))'

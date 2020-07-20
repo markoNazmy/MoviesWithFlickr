@@ -8,7 +8,7 @@
 
 import Foundation
 
-typealias MovieFlickrPhotosResult = (Result<PhotosResponse, AppError>) -> (Void)
+typealias MovieFlickrPhotosResult = (Result<PhotosResponse, AppError>) -> Void
 
 protocol MovieFlickrPhotosRepositoryProtocol {
     func fetchMoviesList(movieTitle: String, page: Int, photosPerPage: Int, result: @escaping MovieFlickrPhotosResult)

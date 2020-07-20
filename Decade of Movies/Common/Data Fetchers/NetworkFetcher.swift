@@ -6,7 +6,6 @@
 //  Copyright © 2020 MarkoNazmy. All rights reserved.
 //
 
-import Foundation
 import Alamofire
 
 struct NetworkFetcher: Fetcher {
@@ -25,7 +24,7 @@ struct NetworkFetcher: Fetcher {
     static let shared = NetworkFetcher()
     
     func prepareRequest<T: Codable>(request: Request, result: @escaping MappedResult<T>) -> URLRequest? {
-        var urlRequest: URLRequest =  URLRequest(url: fullUrlString(fromRequest: request), cachePolicy: request.cachePolicy, timeoutInterval: 60.0)
+        var urlRequest: URLRequest = URLRequest(url: fullUrlString(fromRequest: request), cachePolicy: request.cachePolicy, timeoutInterval: 60.0)
         urlRequest.method = request.method
         urlRequest.headers = HTTPHeaders(headers(fromRequest: request))
         return urlRequest
