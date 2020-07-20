@@ -21,6 +21,7 @@ class MoviesListingPresenterTests: QuickSpec {
         describe("MoviesListingPresenter") {
             describe("its success case") {
                 it("must return a single row view mode value") {
+                    self.failMoviesListingPresenter.viewMode = .empty
                     self.sucMoviesListingPresenter.getAllMovies()
                     expect(self.sucMoviesListingPresenter.viewMode).to(equal(MoviesListingPresenter.ViewMode.singleRow))
                     expect(!self.sucMoviesListingPresenter.movies.isEmpty).to(beTruthy())
