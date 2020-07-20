@@ -1,5 +1,6 @@
 included:
 excluded:
+  - Pods
 opt_in_rules:
   - empty_count
   - file_header
@@ -21,7 +22,7 @@ opt_in_rules:
 
 file_header:
   required_pattern: |
-                    \/\/
+                    \/\/         
                     \/\/  .*?\.swift
                     \/\/  //  Decade of Movies.*?
                     \/\/

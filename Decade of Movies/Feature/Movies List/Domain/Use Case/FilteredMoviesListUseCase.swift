@@ -8,7 +8,7 @@
 
 import Foundation
 
-typealias FilteredMoviesListResult = (Result<[Int: [Movie]], AppError>) -> (Void)
+typealias FilteredMoviesListResult = (Result<[Int: [Movie]], AppError>) -> Void
 
 protocol FilteredMoviesListUseCaseProtocol {
     func excute(key: String, result: @escaping FilteredMoviesListResult)
@@ -52,7 +52,7 @@ class FilteredMoviesListUseCase: FilteredMoviesListUseCaseProtocol {
     }
     
     fileprivate func filter(key: String, movies: [Movie]?) -> [Movie]? {
-        if let searchResult = movies?.filter({ return $0.title?.lowercased().contains(key) ?? false}) {
+        if let searchResult = movies?.filter({ return $0.title?.lowercased().contains(key) ?? false }) {
             let sortedResult = searchResult.sorted { return ($0.rating ?? 0) > ($1.rating ?? 0) }
             return sortedResult
         } else {
@@ -60,12 +60,16 @@ class FilteredMoviesListUseCase: FilteredMoviesListUseCaseProtocol {
         }
     }
     
-    fileprivate func categorize(_ sortedResult: [Movie]) -> [Int : [Movie]]? {
+    fileprivate func categorize(_ sortedResult: [Movie]) -> [Int: [Movie]]? {
         let categorizedResult: [Int: [Movie]] = sortedResult.reduce([:]) { (result, movie) in
             var result = result
-            if var arr = result[movie.year ?? 0], arr.count < 5 {
-                arr.append(movie)
-                result[movie.year ?? 0] = arr
+            if var list = result[movie.year ?? 0] {
+                if list.count < 5 {
+                    list.append(movie)
+                    result[movie.year ?? 0] = list
+                } else {
+                    return result
+                }
             } else {
                 result[movie.year ?? 0] = [movie]
             }

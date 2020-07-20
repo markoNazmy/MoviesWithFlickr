@@ -18,6 +18,8 @@ extension MoviesListingViewController: UITableViewDelegate, UITableViewDataSourc
         case .sections:
             let array = Array(presenter.categorizedMovies)
             return array[section].value.count
+        default:
+            return 0
         }
     }
     
@@ -31,6 +33,8 @@ extension MoviesListingViewController: UITableViewDelegate, UITableViewDataSourc
         case .sections:
             let array = Array(presenter.categorizedMovies)
             movie = array[indexPath.section].value[indexPath.row]
+        default:
+            break
         }
         
         cell.configure(title: movie.title ?? "", rating: movie.rating ?? 0)
@@ -44,6 +48,8 @@ extension MoviesListingViewController: UITableViewDelegate, UITableViewDataSourc
             return 1
         case .sections:
             return presenter.categorizedMovies.values.count
+        default:
+            return 0
         }
     }
     
@@ -55,6 +61,8 @@ extension MoviesListingViewController: UITableViewDelegate, UITableViewDataSourc
         case .sections:
             let array = Array(presenter.categorizedMovies)
             return "\(array[section].key)"
+        default:
+            return nil
         }
     }
     
@@ -68,6 +76,8 @@ extension MoviesListingViewController: UITableViewDelegate, UITableViewDataSourc
         case .sections:
             let array = Array(presenter.categorizedMovies)
             movie = array[indexPath.section].value[indexPath.row]
+        default:
+            break
         }
         navigateToMovieDetails(movie: movie)
     }

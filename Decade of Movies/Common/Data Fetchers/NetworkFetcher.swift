@@ -49,7 +49,7 @@ struct NetworkFetcher: Fetcher {
         // Request base URL should overrides client's, if any.
         
         // Base URL should be defined in the client if not already in the request
-        let api_key = "e4da209e98e0f25bc11f62169dea2c2f"
+        let apiKey = "e4da209e98e0f25bc11f62169dea2c2f"
         
         var queryItems: [URLQueryItem] = []
         
@@ -59,7 +59,7 @@ struct NetworkFetcher: Fetcher {
             }
         }
         
-        queryItems.append(URLQueryItem(name: "api_key", value: api_key))
+        queryItems.append(URLQueryItem(name: "api_key", value: apiKey))
         
         let scheme = "https"
         var urlComponents = URLComponents()

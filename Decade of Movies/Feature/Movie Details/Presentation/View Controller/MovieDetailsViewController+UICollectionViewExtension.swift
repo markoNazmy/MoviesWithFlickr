@@ -46,7 +46,7 @@ extension MovieDetailsViewController: UICollectionViewDataSource, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
         movieDetailsHeaderView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, for: indexPath, viewType: MovieDetailsHeaderView.self)
-        movieDetailsHeaderView.Configure(title: presenter.movie.title ?? "", year: presenter.movie.year ?? 0, genres: presenter.getFullString(array: presenter.movie.genres), cast: presenter.getFullString(array: presenter.movie.cast))
+        movieDetailsHeaderView.configure(title: presenter.movie.title ?? "", year: presenter.movie.year ?? 0, genres: presenter.getFullString(array: presenter.movie.genres), cast: presenter.getFullString(array: presenter.movie.cast))
         return movieDetailsHeaderView
     }
     

@@ -9,7 +9,7 @@ target 'Decade of Movies' do
 
   pod 'SwiftLint'
   pod 'SwiftFormat'
-  pod 'Alamofire'
+  pod 'Alamofire', '5.0'
   pod 'Kingfisher'
   pod 'Reusable'
 

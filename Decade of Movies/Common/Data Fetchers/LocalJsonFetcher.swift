@@ -18,7 +18,7 @@ struct LocalJsonFetcher: Fetcher {
     
     func prepareRequest<T: Codable>(request: Request, result: @escaping MappedResult<T>) -> URLRequest? {
         switch request.requestType {
-        case .localfile(let fileName , let fileExt):
+        case .localfile(let fileName, let fileExt):
             if let path = Bundle.main.path(forResource: fileName, ofType: fileExt) {
                 let url = URL(fileURLWithPath: path)
                 let urlRequest = URLRequest(url: url, cachePolicy: request.cachePolicy, timeoutInterval: 60.0)

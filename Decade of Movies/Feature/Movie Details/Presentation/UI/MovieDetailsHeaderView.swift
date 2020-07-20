@@ -64,7 +64,7 @@ class MovieDetailsHeaderView: UICollectionReusableView, NibOwnerLoadable, Reusab
         return titleLabelHeight + yearLabelHeight + castLabelHeight + genresLabelHeight + (stackViewSpacing * spacingFactor) + bottomSpacing
     }
     
-    func Configure(title: String, year: Int, genres: String?, cast: String?) {
+    func configure(title: String, year: Int, genres: String?, cast: String?) {
         if let genres = genres {
             genresView.isHidden = false
             genresLabel.text = genres

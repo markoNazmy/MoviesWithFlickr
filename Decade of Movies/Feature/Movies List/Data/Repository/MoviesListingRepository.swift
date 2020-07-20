@@ -8,7 +8,7 @@
 
 import Foundation
 
-typealias MoviesListResult = (Result<Movies, AppError>) -> (Void)
+typealias MoviesListResult = (Result<Movies, AppError>) -> Void
 
 protocol MoviesListingRepositoryProtocol {
     func fetchMoviesList(result: @escaping MoviesListResult)

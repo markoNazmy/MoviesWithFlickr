@@ -1,4 +1,3 @@
-//
 //  Result.swift
 //  Decade of Movies
 //

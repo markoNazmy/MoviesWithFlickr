@@ -8,12 +8,14 @@
 
 import Foundation
 
-
-// MARK: - Movie
-struct Movie: Codable {
+struct Movie: Codable, Equatable {
     let title: String?
     let year: Int?
     let cast: [String]?
     let genres: [String]?
     let rating: Int?
+    
+    public static func == (lhs: Movie, rhs: Movie) -> Bool {
+        return lhs.title == rhs.title
+    }
 }

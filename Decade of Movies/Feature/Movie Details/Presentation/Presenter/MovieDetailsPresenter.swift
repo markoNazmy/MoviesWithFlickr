@@ -15,7 +15,7 @@ protocol MovieDetailsView: class {
 
 class MovieDetailsPresenter {
     
-    enum ViewMode {
+    enum ViewMode: Int {
         case data
         case empty
         case error
