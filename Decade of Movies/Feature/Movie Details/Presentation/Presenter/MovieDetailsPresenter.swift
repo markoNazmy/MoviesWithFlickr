@@ -44,17 +44,21 @@ class MovieDetailsPresenter {
         movieFlickrPhotosUseCase.excute(movieTitle: movie?.title ?? "") {[weak self] (result) in
             switch result {
             case .success(let response):
-                self?.photos.append(contentsOf: response)
-                if self?.photos.isEmpty == true {
-                    self?.viewMode = .empty
-                } else {
-                    self?.viewMode = .data
-                }
-                self?.view?.refreshCollectionView()
+             self?.setupView(response: response)
             case .failure:
                 self?.viewMode = .error
                 self?.view?.refreshCollectionView()
             }
+            self?.view?.refreshCollectionView()
+        }
+    }
+    
+    private func setupView(response: [String]) {
+        photos.append(contentsOf: response)
+        if photos.isEmpty == true {
+            viewMode = .empty
+        } else {
+            viewMode = .data
         }
     }
     

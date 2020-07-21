@@ -55,14 +55,7 @@ class MoviesListingPresenter {
         moviesListingUseCase.excute {[weak self] (result) in
             switch result {
             case .success(let movies):
-                self?.viewMode = .singleRow
-                self?.movies = movies.movies ?? []
-                if self?.movies.isEmpty == true {
-                    self?.viewMode = .empty
-                    self?.view?.showEmptyStateView()
-                } else {
-                    self?.view?.refreshListWithAnimation()
-                }
+                self?.setupSingleRowView(movies: movies)
             case .failure:
                 self?.retryAction = {
                     self?.getAllMovies()
@@ -73,6 +66,17 @@ class MoviesListingPresenter {
             self?.view?.hideLoadingView()
         }
     }
+    
+    private func setupSingleRowView(movies: Movies) {
+        viewMode = .singleRow
+        self.movies = movies.movies ?? []
+        if self.movies.isEmpty == true {
+            viewMode = .empty
+            view?.showEmptyStateView()
+        } else {
+            view?.refreshListWithAnimation()
+        }
+    }
 
     func getAllMovies(withKey key: String) {
         prepareView()
@@ -80,14 +84,7 @@ class MoviesListingPresenter {
         filteredMoviesListUseCase.excute(key: key) {[weak self] (result) in
             switch result {
             case .success(let categorizedMovies):
-                self?.viewMode = .sections
-                self?.categorizedMovies = categorizedMovies
-                if self?.categorizedMovies.values.isEmpty == true {
-                    self?.viewMode = .empty
-                    self?.view?.showEmptyStateView()
-                } else {
-                    self?.view?.refreshListWithAnimation()
-                }
+                self?.setupSectionsView(categorizedMovies: categorizedMovies)
             case .failure:
                 self?.retryAction = {
                     self?.getAllMovies(withKey: key)
@@ -96,6 +93,17 @@ class MoviesListingPresenter {
                 self?.view?.showErrorView()
             }
             self?.view?.hideLoadingView()
+        }
+    }
+    
+    private func setupSectionsView(categorizedMovies: [Int: [Movie]]) {
+        viewMode = .sections
+        self.categorizedMovies = categorizedMovies
+        if self.categorizedMovies.values.isEmpty == true {
+            viewMode = .empty
+            view?.showEmptyStateView()
+        } else {
+            view?.refreshListWithAnimation()
         }
     }
     
